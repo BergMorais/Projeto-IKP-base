@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Check — Página Institucional</title>
+
+    <style>
+      :root {
+        --orange: #ffb36b; /* laranja claro */
+        --bg: #ffffff; /* branco */
+        --space-gray: #2f2f36; /* cinza espacial */
+        --muted: #6b6b6b;
+        --card-radius: 10px;
+        --max-width: 1100px;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: linear-gradient(180deg, #686766 0%, #686766 100%);
+        color: var(--space-gray);
+      }
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 24px;
+      }
+      header {
+        background: var(--bg);
+        border-radius: 12px;
+        padding: 12px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        box-shadow: 0 6px 20px rgba(47, 47, 54, 0.06);
+        margin-bottom: 18px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--orange), #ffd7ad);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: var(--space-gray);
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 14px;
+      }
+      nav a {
+        color: var(--space-gray);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+      nav a:hover {
+        background: rgba(255, 179, 107, 0.12);
+      }
+      main {
+        padding: 8px 0;
+      }
+      .intro {
+        background: linear-gradient(90deg, #fff, #fff);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 18px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        box-shadow: 0 6px 20px rgba(47, 47, 54, 0.04);
+      }
+      .intro .text {
+        flex: 1;
+      }
+      .intro h1 {
+        margin: 0;
+        font-size: 20px;
+        color: var(--space-gray);
+      }
+      .intro p {
+        margin: 6px 0 0;
+        color: var(--muted);
+      }
+      .intro .cta {
+        background: var(--orange);
+        color: white;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-weight: 700;
+      }
+      .mvq {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+      .card {
+        background: var(--bg);
+        padding: 18px;
+        border-radius: var(--card-radius);
+        box-shadow: 0 6px 18px rgba(47, 47, 54, 0.04);
+      }
+      .card h3 {
+        margin: 0 0 8px;
+        color: var(--space-gray);
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .metrics {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .metric {
+        flex: 1;
+        background: linear-gradient(180deg, rgba(5, 5, 5, 0.06), transparent);
+        padding: 14px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .metric .num {
+        font-size: 35px;
+        font-weight: 800;
+        color: var(--space-gray);
+        margin-bottom: 6px;
+      }
+      .metric p {
+        margin: 0;
+        color: var(--space-gray);
+        font-size: 13px;
+      }
+      .team {
+        margin-bottom: 18px;
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 12px;
+      }
+      .member {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: var(--bg);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 6px 16px rgba(47, 47, 54, 0.04);
+      }
+      .member img {
+        width: 64px;
+        height: 64px;
+        border-radius: 8px;
+        object-fit: cover;
+        background: #eee;
+      }
+      .member .info {
+        font-size: 13px;
+      }
+      .member .info b {
+        display: block;
+        color: var(--space-gray);
+      }
+      .news-events {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .news {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .news-item {
+        background-color: #ebe720fd;
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 12, 0.932);
+      }
+      .events {
+        background: var(--bg);
+        padding: 12px;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(47, 47, 54, 0.04);
+      }
+      .video-wrapper {
+        background: linear-gradient(180deg, #fff, #fff);
+        padding: 12px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 6px 20px rgba(47, 47, 54, 0.04);
+      }
+      .video-wrapper video,
+      .video-wrapper iframe {
+        width: 100%;
+        height: 360px;
+        border-radius: 8px;
+        border: 0;
+        background: #000;
+      }
+      @media (max-width: 900px) {
+        .mvq {
+          grid-template-columns: 1fr;
+        }
+        .news-events {
+          grid-template-columns: 1fr;
+        }
+        .intro {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .metrics {
+          flex-direction: column;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        const href =
+          "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap";
+        function applyPoppins() {
+          const head =
+            document.head || document.getElementsByTagName("head")[0];
+          if (!head) return;
+          if (!document.querySelector("link[data-poppins]")) {
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = href;
+            link.setAttribute("data-poppins", "1");
+            head.appendChild(link);
+          }
+          if (!document.querySelector("style[data-poppins-style]")) {
+            const style = document.createElement("style");
+            style.setAttribute("data-poppins-style", "1");
+            style.textContent =
+              'html,body,:root,*{font-family:"Poppins", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;}';
+            head.appendChild(style);
+          }
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", applyPoppins);
+        } else {
+          applyPoppins();
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="brand">
+          <a href="#inicio" style="display: inline-block">
+            <img
+              src="IKP2.jpg"
+              alt="Logo IKP"
+              style="
+                width: 90px;
+                height: 90px;
+                border-radius: 10px;
+                object-fit: cover;
+                display: block;
+              "
+            />
+          </a>
+          <div>
+            <div style="font-weight: 700; color: var(--space-gray)">
+              IKP | EXPRESSO
+            </div>
+
+            <style>
+              /* Garantir que a logo fique quadrada, centralizada e com crop uniforme */
+              .brand a.logo-link img {
+                width: 250px;
+                height: 250px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 10px;
+                display: block;
+                margin: 0;
+              }
+              @media (max-width: 900px) {
+                .brand a.logo-link img {
+                  width: 120px;
+                  height: 120px;
+                }
+              }
+            </style>
+
+            <div style="font-size: 12px; color: var(--muted)">
+              Página institucional
+            </div>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li>
+              <a
+                href="https://drive.google.com/drive/folders/1PjPDxil7Z0SfFgbJ-T5DQJA4WwANM2Co?usp=sharing"
+                >Docs</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section class="intro" id="inicio">
+          <div class="text">
+            <h1>Bem-vindo ao IKP expresso</h1>
+            <p>
+              Espaço institucional com informações sobre, números de impacto,
+              avisos, equipe, ações e eventos.
+            </p>
+          </div>
+          <div>
+            <a
+              href="https://www.institutokatianapena.com/?fbclid=PAZXh0bgNhZW0CMTEAAafT4OltO4XF9iAUVA2pyPiiKwEDT4mbQwv-GKUeNoY1a6zUVHgrt08KMtUj-g_aem_2HlFgqztzp2XT2mlU4-Mbg"
+            >
+              <button class="cta">Saiba mais</button>
+            </a>
+          </div>
+        </section>
+
+        <section class="mvq" aria-label="Missão Visão Valores">
+          <div class="card">
+            <h3>Missão</h3>
+            <p>Transformar vidas através da arte.</p>
+          </div>
+          <div class="card">
+            <h3>Visão</h3>
+            <p>
+              Ser referência na formação continuada em dança e na formação
+              cidadã.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Valores</h3>
+            <p>
+              Democracia, transparência, respeito à diversidade sexual,
+              solidariedade e cultura de paz.
+            </p>
+          </div>
+        </section>
+
+        <section class="metrics" aria-label="Indicadores">
+          <div class="metric">
+            <div class="num">3.686</div>
+            <p>
+              Impactados diretamente nos três últimos anos — Pessoas
+              beneficiadas por atividades
+            </p>
+          </div>
+          <div class="metric">
+            <div class="num">Cerca de 10.000</div>
+            <p>
+              Atendimentos — Consultas, suporte e acompanhamentos realizados
+            </p>
+          </div>
+          <div class="metric">
+            <div class="num">9</div>
+            <p>
+              Modalidades — Balé, Karatê, Jiu-Jitsu, Muay-thai, Capoeira,
+              Percussão, Fortalecimento educacional, Hip-Hop, Futebol
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div
+            class="card"
+            style="
+              display: flex;
+              gap: 16px;
+              align-items: center;
+              margin-bottom: 18px;
+            "
+          >
+            <img
+              src="https://cdn.prod.website-files.com/68a312109b3744cdf3f7a151/68b6a7a6f516eca8bfe1ca1b_169.-Processos-da-gestao-de-pessoas.-6-pilares-e-dicas-fundamentais.webp"
+              alt="Reunião de colaboradores"
+              style="
+                width: 160px;
+                height: 110px;
+                object-fit: cover;
+                border-radius: 8px;
+                flex-shrink: 0;
+              "
+            />
+            <div>
+              <h3 style="margin: 0 0 6px 0; color: var(--space-gray)">
+                Nosso Time
+              </h3>
+              <p
+                style="margin: 0 0 8px 0; color: var(--muted); max-width: 720px"
+              >
+                Conheça as pessoas que fazem o IKP acontecer — gestores,
+                coordenadores, voluntários e parceiros comprometidos com impacto
+                social, inclusão e desenvolvimento comunitário.
+              </p>
+              <a
+                href="#inicio"
+                style="
+                  display: inline-block;
+                  background: var(--orange);
+                  color: #fff;
+                  padding: 8px 12px;
+                  border-radius: 8px;
+                  text-decoration: none;
+                  font-weight: 700;
+                "
+              >
+                #Nossadançaaartedamudança
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- AQUI SE INICIA A SEÇÃO TEAM — **não alterei nada dentro desta seção** -->
+        <section class="team" aria-label="Colaboradores">
+          <!-- Conteúdo original da seção permanece idêntico ao seu código -->
+          <h2 style="margin: 0 0 10px 0; color: var(--space-gray)">
+            #Gestãofavela
+          </h2>
+          <div class="team-grid">
+            <div class="member">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUPxFeRwmJW_W9OASf6-ejV9NezaCoIJq-gw&s"
+                alt="Colaborador 1"
+              />
+              <div class="info">
+                <b>Katiana Pena</b
+                ><span style="color: var(--muted)"
+                  >Ceo — 10 anos de experiência em gestão social.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVDA_WCZct7fSdPd4MLTN045kFfamHEXREXD8Bu6DSkHw-TCzV-x3HSTL-HEfkZSEIi-6v0OmjnPk41LmiE2dmKaCdDLcynp_UqDq2rsaM6WkbhWeAa3ntXn9shCivVgNPXHyui9whi3vxqygskOziW4zXvAA7UvZHU1cLwkeX5GQUOCnVOcgRgs8eVgED9OTtzewMt-KeqU-oFO=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 2"
+              />
+              <div class="info">
+                <b>Auriberg Morais</b
+                ><span style="color: var(--muted)"
+                  >Analista de Dados — Foco em métricas de impacto.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVDVyP9v_Kit900r0VmbOOGCf7V40lSaku-Lhmbl6EhHJAkR8LYn9lRQeaLSAYAP7blSUW9bgIbnzD4-qucP-i77Yv8MPhuAMFCW17la8LzUmV22Kc2z1djc5bgvzbYG_6bVa3r7UO-shgnHsK3ykFlDMEotm9PfOkDBmAgxW49Fq0zDOmcv1haeSZrGCLp-X-4Sds4YrntvtLo=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 3"
+              />
+              <div class="info">
+                <b>Gutemberg Morais</b
+                ><span style="color: var(--muted)"
+                  >Especialista em Comunicação — Conteúdo e redes.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVBhCRQa4fbzsJwjf7EfjkkTbhGhSNb72kHP1VZ8tDy3SfIdRgvi6ceraL36D2pV6VQatsIk7bMTqlMuFKGRnNA_VUuieyGZvuyV1ViouLvOK9fjbDaH1RTSFPoBxeOQ27yI-n6texR5rtbbAUBPFBiFxSqgKjPgmRsWyDk1YTVkI85PkOPHA8XmDGdGiCSzLEJ85mdREYmi99Km=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 4"
+              />
+              <div class="info">
+                <b>Pietro Gaspar </b
+                ><span style="color: var(--muted)"
+                  >Especialista em Edição — Vidiomaker padrão fifa.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVCXATiA5dpQ-9KnrCCTmWBNS7Kuz50SG7WzNC5moJK6fadxBtnaE_C8nec3G7pc-eYdLZeCBR7fXeHU0VD5aKSlQzIHE04yyMDnWCyIjhKnFR5SbcKjB8a0BN1n1xWztIKO9b_-iKeB8ml3mySq5TZxt-AA--YSevSl-V9eoJ9RgfqfdBp_auUNzOFNnnFBK_RMt4ftht7RcP7N=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 5"
+              />
+              <div class="info">
+                <b>Natanael Ferreira</b
+                ><span style="color: var(--muted)"
+                  >Coordenador de esporte — Parcerias, Captação de recursos e
+                  engajamento.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVDY1HtjcXKuczJ__HRtEmsZZZa7rD8RHN2fR1NmobuWYiARxO1C0gPY2ZimaDiOzSZL4Kiuz16KOPLiiOXYQ8NgrmuVdpix0Qudwht7grGq2CXsgF68PC7UmzQ601wBArsmWyHSD-vHx_dERB7SEaA_hGRS19WQ5CWeAH7m4Zo1i794F4M0sTGTP3az6yQQZGrwbBLNzAecAE8M=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 6"
+              />
+              <div class="info">
+                <b>Thais Pena</b
+                ><span style="color: var(--muted)"
+                  >Financeiro — Planejamento e controle.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVA0HPe5bkfIZ_yEeoL4kugldjj5y7k2YR-iwLlQlVlJ5N2HtRXHnbXFKUntOfQIP4Tjj_Ond6oJULGQFZHPHjyh06UP6HJfFPsg2K8mz46FmXCQP8y53p9BLfeBMEnNWWSXEuTWnvmy8kWQ8v-BKREWDPPizo5mmhe-1ErdGsFvzRDuTrvOqOv4vX_UeByWIKId3btLlLUjXRmb=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 7"
+              />
+              <div class="info">
+                <b>Elayne Moura</b
+                ><span style="color: var(--muted)"
+                  >Departamento pessoal — Organização e controle .</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVDUsSS0nOgi8Yc_eTd-s-Kb3iO78QjdLysHsrSftu3a31fElkbxnCblwrcNPkRLbbUlee9W61sfDI_Zx9xFXlVbzBRgxehlqxifnb3Ro3KljBHAwEVXNRUSHSJtCjace2pHplfAR_Ne7jr0Tt422UeozZ1f8okLkWDWA5tKJwTt8xgOA20jpf7UlIfXKGWJ60Rd9dPvUqNRwWS5=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 8"
+              />
+              <div class="info">
+                <b>Francisca Afonso</b
+                ><span style="color: var(--muted)"
+                  >Logística — Operações de campo.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVDEQZhys2IoIe48Q4vX6M1uMyP-3wmmUrCYRNfMTwOBnykWTFIJ3imJjRZtXHvia4TVkdWWPlZPrlZTIBIuBDH0s-w7wDcw005LCe4SRFT-0dPS7D4HuW49VNavsj1sI-eNTCXut10r5Q0kLxXxloxHLEKigdel9XVaD70aMvISo_vNkh4-CZZpdETuFgBJGIJE4hvwmjkvuFiE=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 9"
+              />
+              <div class="info">
+                <b>Milena Araujo</b
+                ><span style="color: var(--muted)"
+                  >RH — Desenvolvimento de pessoas.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://encrypted-tbn0.gstatic.com_images?q=tbn:ANd9GcQwjXrY9b0eDPZj8vfoaXYOvZBEfVZ2vDaGxQ&s"
+                alt="Colaborador 10"
+              />
+              <div class="info">
+                <b>Marcio Silva</b
+                ><span style="color: var(--muted)"
+                  >Parceiros & Fundraising — Captação de recursos e se acha a
+                  nuvem.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVAEbr4Wz6Wj_cFN-x40KXoiWGayyUojdQg0HjjKK84xPrHXNo4D_pZDQS8qmT1_5P1pbajerU5VQ9h4viylmZkFkhfZOqBTfQy8lhZ5wBeKWIUzPaan4hoPkaO35FFUwFfzGJ3lkMH7XCUuK092CnFqCb3KNs3LWVfgELnRdmkv8Av_zl7SXBOtNSETTXTTGIec7NdxMymYP8XR=w260?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 11"
+              />
+              <div class="info">
+                <b>Karina Santos</b
+                ><span style="color: var(--muted)"
+                  >Assistente Social — gestão e atendimento de processos
+                  sociais.</span
+                >
+              </div>
+            </div>
+            <div class="member">
+              <img
+                src="https://lh7-rt googleusercontent.com/formsz/AN7BsVClP-ddw9vzCTJNWOSCB2CHLqnzpdKpHS-3SrhuUEtgmSc5FV51MR2X9MhCUIpboIO16IDa-ekHgyrWdIiFm0BLwmBOnuq9s2IEx21K1pyC6S6BWyiQVMoE6_6lNOTON_uPRIyO7jkqWonJ48ioatlmX0K-m7Bca-ffVg?key=gje1CgTw_RLKPNz1VCchHw"
+                alt="Colaborador 12"
+              />
+              <div class="info">
+                <b>Elaine Vieira</b
+                ><span style="color: var(--muted)"
+                  >Recepcionista — acolhimento e atendimento premium.</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Fim da seção team -->
+
+        <section class="news-events" aria-label="Novidades e Eventos">
+          <div class="news">
+            <h2 style="margin: 0 0 6px 0; color: var(--space-gray)">
+              Novidades
+            </h2>
+
+            <div class="news-item">
+              <strong>ATENÇÃO: prestação de contas - CEDCA</strong>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 14px">
+                Dia 25/10 é o prazo final para prestação de contas do projeto
+                "Nossa dança a arte da mudança", correspondente às turmas de
+                balé iniciante e avançada, do período de 28/07 à 25/09.
+              </p>
+            </div>
+
+            <div class="news-item">
+              <strong>Relatório anual 2024</strong>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 14px">
+                Disponível para download: resultados, casos e aprendizados do
+                ano.
+              </p>
+            </div>
+
+            <div class="news-item">
+              <strong>Atualização do site</strong>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 14px">
+                Nosso site de cara nova heheeh corre e vai dar uma olhada!!!.
+              </p>
+            </div>
+          </div>
+
+          <aside class="events">
+            <h3 style="margin: 0 0 8px 0; color: var(--space-gray)">
+              Eventos Próximos
+            </h3>
+
+            <div style="margin-bottom: 12px">
+              <strong>Jantar de gala — 19/10</strong>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 13px">
+                3° Edição do jantar de gala e leilão anual.
+              </p>
+            </div>
+
+            <div style="margin-bottom: 12px">
+              <strong>Festival corpo potência — em breve</strong>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 13px">
+                Mostra de resultados das atividades desenvolvidas no ano letivo.
+              </p>
+            </div>
+
+            <div>
+              <strong>Aguardando atualização — em breve</strong>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 13px">
+                Breve mais atualizações.
+              </p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="video-wrapper" aria-label="Vídeo institucional">
+          <h2 style="margin: 0 0 6px 0; color: var(--space-gray)">
+            Vídeo institucional
+          </h2>
+          <iframe
+            width="853"
+            height="480"
+            src="https://www.youtube.com/embed/SzKjpWAwNdw"
+            title="Instituto Katiana Pena - Somos Favela"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <small style="color: var(--muted)">
+            Insira aqui um vídeo institucional ou incorpore um iframe do YouTube
+            conforme necessário.
+          </small>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Gradiente no body
+        document.body.style.background =
+          "linear-gradient(180deg,#ff6b00 0%,#ff8a1a 35%,#ffb36b 65%,#ffd7ad 100%)";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.minHeight = "100vh";
+
+        // Estilo no container
+        const c = document.querySelector(".container");
+        if (c) {
+          c.style.background =
+            "linear-gradient(180deg,#ff6b00 0%,#ff7a00 10%,#ff8a1a 25%,#ff9a36 45%,#ffb36b 70%,#ffd7ad 100%)";
+          c.style.borderRadius = "12px";
+        }
+
+        // Estilo da logo
+        const a = document.querySelector('.brand a[href="#inicio"]');
+        if (a) {
+          a.classList.add("logo-link");
+          const img = a.querySelector("img");
+          if (img) {
+            img.style.height = "90px";
+            img.style.objectFit = "cover";
+            img.style.objectPosition = "center";
+            img.style.borderRadius = "10px";
+            img.style.display = "block";
+            img.style.margin = "0";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
